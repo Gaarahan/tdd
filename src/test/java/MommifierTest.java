@@ -19,4 +19,12 @@ public class MommifierTest {
     String expect = "yomommyumommyimommyenimommyeg";
     assertEquals(expect, res);
   }
+
+  @Test
+  void should_insert_mommy_when_vowels_more_than_30_percent_but_not_only_appear_continually () {
+    Mommifier mommifier = new Mommifier();
+    String res = mommifier.resolve("youieniegxxxixx");
+    String expect = "yomommyumommyimommyenimommyegxxxixx";
+    assertEquals(expect, res);
+  }
 }

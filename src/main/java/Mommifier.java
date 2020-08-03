@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
  */
 public class Mommifier {
   public String resolve(String str) {
-    int vowelsCount = str.replaceAll("[!aeiou]", "").length();
+    int vowelsCount = str.length() - str.replaceAll("[!aeiou]", "").length();
     if ((vowelsCount*1.0) / str.length() < 0.3) {
       return str;
     }
