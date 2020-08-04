@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 public class Mommifier {
   private final static String SINGLE_VOWEL_REGEX = "[!aeiou]";
   private final static String CONTINUALLY_VOWEL_REGEXP = "[aeiou](?=[aeiou])";
+  private final static Double VOWEL_THRESHOLD = 0.3;
 
   public String resolve(String str) {
     if(this.hasMoreThanThirtyPercentVowels(str)) {
@@ -28,6 +29,6 @@ public class Mommifier {
 
   private boolean hasMoreThanThirtyPercentVowels(String str) {
     int vowelsCount = str.length() - str.replaceAll(SINGLE_VOWEL_REGEX, "").length();
-    return (vowelsCount * 1.0) / str.length() < 0.3;
+    return (vowelsCount * 1.0) / str.length() < VOWEL_THRESHOLD;
   }
 }
